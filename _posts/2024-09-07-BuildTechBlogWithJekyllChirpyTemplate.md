@@ -10,54 +10,54 @@ comments: true
 
 ## Summary
 
-해당 글에서는 기술 블로그를 구축 하기 위해 필자가 겼었던 다양한 옵션들과 장단점을 소개하고,
+In this post, I will introduce the various options I explored 
 
-왜 최종적으로 Jekyll + Chirpy template 조합을 선택했는지 설명 한다.
+and the pros and cons I encountered while building a tech blog.
+
+I will also explain why I ultimately chose the combination of Jekyll + Chirpy template.
 
 ## My Criteria
 
-기술 블로그를 위해 고르려고 했던 플랫폼 및 템플릿의 기준은 아래와 같았다.
+The criteria I considered when choosing a platform and template for a tech blog were as follows.
 
-1. Markdown 이 native 로 지원 되어야 한다.
-2. 디자인이 이뻐야 한다.
-3. Table Of Content 가 오른쪽에 표시 되고, 스크롤시에 색깔 등으로 표시가 되면 좋겠다.
-4. 댓글 기능이 native 로 지원되면 좋겠다.
-5. 한번만 지불하는 것이라면, 유료도 상관 없다.
-6. 지원되는 blog 용 custom template 이 많아야 한다.
-7. 지속적으로 관리가 되고 있는 template 이어야 한다.
-8. Migration 이 용이 해야 한다.
-9. 글에 tag 항목이 있고, 각 tag 를 눌렀을때 해당 항목으로 글들이 소팅되서 보여야 한다.
+1. Must support Markdown natively.
+2. The design has to be visually appealing.
+3. The Table of Content should appear on the right side, and it would be great if it highlighted when scrolling.
+4. Comment functionality should be natively supported.
+5. If it’s a one-time payment, I don’t mind it being a paid option.
+6. There must be a wide variety of custom templates available for blogs.
+7. The template should be actively maintained.
+8. Migration should be easy.
+9. There should be a tag section for posts, and when clicking on each tag, the related posts should be sorted and displayed.
 
 ## Tech Blog Platform Options
 
-아래는 techblog 를 구축하기 위해 시도해 보았던, 다양한 플랫폼들에 대한 경험과, 
+Below are the platforms I experimented with to build a tech blog,
 
-내 기준에 비춰 보았을때의 장단점을 정리해 보았다.
+along with their pros and cons based on [my criteria](/posts/BuildTechBlogWithJekyllChirpyTemplate/#my-criteria).
 
 ### WordPress
 
-도메인을 제공해 주는 모델 (https://wordpress.com ) 이 있고, 직접 서버에 설치해서 구축할 수도 있다. 
+There’s a domain-provided model (https://wordpress.com) and the option to set up a self-hosted version.
 
-사실 AWS 에서 운영하고 싶은 도메인도 이미 사두기도 했고, ( wonhee.net )
+I had already purchased a domain that I wanted to run on AWS (wonhee.net), and I could easily launch a pre-optimized WordPress environment with AWS Lightsail.
 
-AWS lightsail 으로 이미 최적화 환경세팅이 끝난 WordPress 를 손쉽게 띄울 수도 있었다.
+While WordPress offers many plugins and is user-friendly, the fact that documents are stored in a database makes migration inconvenient.
 
-지원되는 플러그인도 상당히 많고, 쓰기 편하지만 문서 파일이 DB 에 저장되어 Migration 이 불편한 부분이 있고,
+I felt that a simple yet powerful Markdown-based static site generator would be more suited for a tech blog,
 
-단순하지만 강력한 Markdown 기반의 static site generator 가 기술 블로그와는 더 맞겠다는 생각이 들어서
-
-customize 도중에 접었다.
+so I discontinued using WordPress during customization process.
 
 ![alt text](/assets/img/image2.png)
 
 #### Pros
-- 도메인 제공 모델로 구축할 수 있음.
-- 서버 운영에 지식이 있다면, AWS, Azure, GCP 등의 cluster provider 를 사용해서 운영할 수 있음.
+- Can be built using a domain-provided model.
+- If you have server knowledge, you can run it on cloud providers like AWS, Azure, or GCP.
 
 #### Cons
-- Markdown 기반이 아님.
-- 기술 블로그로 쓰기에는 무거움.
-- 문서가 DB 에 저장되어, Migration 에 불편함.
+- Not Markdown-based.
+- Too heavy for a tech blog.
+- Documents are stored in a database, making migration cumbersome.
 
 #### Ref
 - [https://wordpress.org](https://wordpress.org)
@@ -66,86 +66,80 @@ customize 도중에 접었다.
 
 ### VitePress
 
-회사에서 문서 생성기로 잘 사용하고 있는 솔루션 이다.
+This is a solution that my company uses as a document generator.
 
-vue 에서 VuePress 를 제치고, 모든 공식 문서에 사용되는 솔루션 이라 믿을수 있을 뿐만 아니라
+Since it's now being used for all official Vue documents, it’s trustworthy.
 
-디자인이 깔끔하고, 계속 개발이 되고 있어 좋아 보였다.
+The design is clean, and it's actively being developed, which made it appealing.
 
-다만, 문서 사이트에 특화 되어 있다 보니, 블로그 용으로 쓰기에는, 나름의 커스터마이즈가 필요해 보였다.
+However, since it's specialized for document sites, customizing it for a blog seemed necessary.
 
-블로그용으로 커스터마이징을 한 몇몇 솔루션이 오픈소스로 공개 되어 있었지만, 
-
-디자인등 내 기대를 충족하기에는 부족해 보였다.
+While some blog-customized solutions were available as open source, they didn’t quite meet my expectations.
 
 ![alt text](/assets/img/image3.png)
 
 ![alt text](/assets/img/image6.png)
 
 #### Pros
-- 현재도 꾸준히 개발중임.
-- 디자인이 깔끔하게 잘나옴.
-- Vue 를 안다면 커스터마이즈 하기 편함.
+- Actively being developed.
+- The design is clean and well-made.
+- Easy to customize if you know Vue.
 
 #### Cons
-- 문서 사이트 제작에 최적회 되어 있어, 블로그용으로는 적합하지 않음.
+- Optimized for document sites, not well-suited for blogs.
 
 #### Ref
 - [https://vitepress.dev](https://vitepress.dev)
 
 ### Hugo
 
-hugo 는 회사에서 문서 생성기로 잘 사용하고 있었다.
+We also use Hugo in the company as a document generator.
 
-빌드 속도도 빠르고, 문서 반영도 바로바로 된다.
+It has a fast build speed, and changes are instantly reflected.
 
-blog 용 template 도 다수 있지만, 
+While there are multiple blog templates available,
 
-jekyll 과 비교 했을때 선택할만한 마땅한 template 이 존재 하지 않았다.
+I couldn’t find a template that matched my needs when compared to Jekyll.
 
 ![alt text](/assets/img/image4.png)
 
 #### Pros
-- 빌드 속도가 빠름.
-- 문서 반영이 바로바로 되서, 작업하기 편함.
+- Fast build speed.
+- Immediate content reflection, making it easy to work with.
 
 #### Cons
-- template 의 개수가 jekyll 과 비교했을때 현저히 적음.
+- The number of templates is significantly less compared to Jekyll.
 
 #### Ref
 - [https://gohugo.io](https://gohugo.io)
 - [https://github.com/QIN2DIM/awesome-hugo-themes](https://github.com/QIN2DIM/awesome-hugo-themes)
 
-### Jekyll (+ chirpy theme)
+### Jekyll (+ Chirpy theme)
 
-github pages 에서 공식적으로 지원을 해주는 플랫폼이라 그런지,
+Since Jekyll is officially supported by GitHub Pages,
 
-[https://github.com/topics/jekyll-theme](https://github.com/topics/jekyll-theme) 페이지에서, 쓸만한 template 들이 다수 보였다.
+I found many useful templates on the [https://github.com/topics/jekyll-theme](https://github.com/topics/jekyll-theme) page.
 
-예전에 jekyll 을 비롯한 플랫폼을 github pages 에 배포하려면 복잡한 환경설정이 많았는데,
+Previously, deploying Jekyll or similar platforms to GitHub Pages required complex configuration.
 
-요즘은 github action 으로 손쉽게 배포할 수 있도록 제공을 해주고 있어, 환경 세팅 부담이 적어서 좋았다.
+But nowadays, GitHub Actions makes deployment easier, reducing setup hassles.
 
 ![alt text](/assets/img/image7.png)
 
-여러 템플릿 중에 위에 언급되어 있는 [My Criteria](http://localhost:8282/posts/JekyllChirpyTemplate/#my-criteria) 을 전부 만족 시키는 
+Among the various templates, I chose the [https://github.com/cotes2020/jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) template,
 
-[https://github.com/cotes2020/jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
-
-템플릿으로 최종 선택을 했다.
-
-디자인도 마음에 들고, 빠르고 마음에 아주 쏙 든다.
+which satisfied all [my criteria](/posts/BuildTechBlogWithJekyllChirpyTemplate/#my-criteria). I’m very happy with its design and features.
 
 ![alt text](/assets/img/image5.png)
 
 #### Pros
-- jekyll 을 배포해주는 github action 을 github 에서 example 로 제공해줌 가져다 쓰기만 하면 됨.
-- [My Criteria](http://localhost:8282/posts/JekyllChirpyTemplate/#my-criteria) 에 언급한 기준을 모두 충족함.
-- 블로그 관련 template 이 다양함.
-- 디자인이 이쁨.
+- GitHub provides a ready-made GitHub Actions example for deploying Jekyll, so you just need to use it.
+- Meets all the criteria mentioned in [my criteria](/posts/BuildTechBlogWithJekyllChirpyTemplate/#my-criteria).
+- A wide variety of blog-related templates are available.
+- The design is beautiful.
 
 #### Cons
-- ruby 기반 플랫폼이라, customize 하기 위해서는 ruby 기반 생태계를 어느정도 알아야함.
+- It’s based on Ruby, so some knowledge of the Ruby ecosystem is needed for customization.
 
 #### Ref
 - [https://jekyllrb.com](https://jekyllrb.com)
@@ -153,8 +147,8 @@ github pages 에서 공식적으로 지원을 해주는 플랫폼이라 그런�
 
 ## Conclusion
 
-최종적으로 Jekyll + chirpy theme 을 선택 했지만,
+Although I ended up choosing Jekyll + Chirpy theme,
 
-최근에는 React 기반 플랫폼인 Gatsby 이 잘나가는 것 같았다.
+Gatsby, a React-based platform, seems to be gaining popularity.
 
-우선은 현재 상태로 운영 해보다가, 추후 변화가 필요할때, Gatsby 쪽도 살펴 봐아 겠다.
+For now, I’ll run my tech blog in its current form, but I might explore Gatsby if changes are needed in the future.
