@@ -10,7 +10,9 @@ comments: true
 
 I am a Fullstack Software Engineer entering my 9th year in the Naver search department. (South Korea)
 
-This blog is a space where I want to share various stories from my career as an IT developer, including experiences with technology, interviews, company life, and projects.
+This blog is a space where I want to share various stories from my career as an IT developer,
+
+including experiences with technology, interviews, company life, and projects.
 
 I hope that one of the posts I casually write will be valuable knowledge and experience for someone.
 
