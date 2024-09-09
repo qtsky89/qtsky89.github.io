@@ -2,7 +2,7 @@
 title: My First Tech Blog
 date: 2024-09-07 16:30:00 +0900
 categories: [blog]
-tags: [blog, first techblog]
+tags: [blog, first tech blog]
 author: wonhee
 toc: true
 comments: true
