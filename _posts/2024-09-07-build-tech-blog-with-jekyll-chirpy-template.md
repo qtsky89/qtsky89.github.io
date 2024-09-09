@@ -34,7 +34,7 @@ The criteria I considered when choosing a platform and template for a tech blog 
 
 Below are the platforms I experimented with to build a tech blog,
 
-along with their pros and cons based on [my criteria](/posts/BuildTechBlogWithJekyllChirpyTemplate/#my-criteria).
+along with their pros and cons based on [my criteria](/posts/build-tech-blog-with-jekyll-chirpy-template/#my-criteria).
 
 ### WordPress
 
@@ -128,13 +128,13 @@ But nowadays, GitHub Actions makes deployment easier, reducing setup hassles.
 
 Among the various templates, I chose the [https://github.com/cotes2020/jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) template,
 
-which satisfied all [my criteria](/posts/BuildTechBlogWithJekyllChirpyTemplate/#my-criteria). I’m very happy with its design and features.
+which satisfied all [my criteria](/posts/build-tech-blog-with-jekyll-chirpy-template/#my-criteria). I’m very happy with its design and features.
 
 ![alt text](/assets/img/image5.png)
 
 #### Pros
 - GitHub provides a ready-made GitHub Actions example for deploying Jekyll, so you just need to use it.
-- Meets all the criteria mentioned in [my criteria](/posts/BuildTechBlogWithJekyllChirpyTemplate/#my-criteria).
+- Meets all the criteria mentioned in [my criteria](/posts/build-tech-blog-with-jekyll-chirpy-template/#my-criteria).
 - A wide variety of blog-related templates are available.
 - The design is beautiful.
 
