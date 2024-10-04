@@ -1,8 +1,8 @@
 ---
-title: Why I choose Funtional option pattern instead of Builder pattern for Golang
+title: Why I choose Funtional options pattern instead of Builder pattern for Golang
 date: 2024-10-03 15:00:00 +0900
 categories: [design pattern]
-tags: [functional option pattern, builder pattern, golang, design pattern]
+tags: [functional options pattern, builder pattern, golang, design pattern]
 author: wonhee
 toc: true
 comments: true
@@ -18,7 +18,7 @@ However, when trying to implement the Builder pattern in Golang,
 
 I face some error handling challenges due to Go’s lack of a try-catch mechanism.
 
-In this document, I’ll explain why I chose the functional options pattern over the Builder pattern for Golang.
+In this document, I’ll explain why I chose the Functional options pattern over the Builder pattern for Golang.
 
 ## Simple struct
 
@@ -105,7 +105,7 @@ It's not practical to use what I created at a certain point.
 
 ## Builder pattern
 
-I could use the builder pattern to create the Document struct.
+I could use the Builder pattern to create the Document struct.
 
 First, let's define the builder interface.
 
@@ -184,7 +184,7 @@ It's working like a charm.
 
 ## Builder pattern error handling
 
-The builder pattern works great in Golang,
+The Builder pattern works great in Golang,
 
 but what if I need to handle errors in each Set function?
 
@@ -389,11 +389,11 @@ func main() {
 }
 ```
 
-## Functional option pattern
+## Functional options pattern
 
 Instead of using the Builder pattern to create a complex struct,
 
-I can use the functional options pattern instead.
+I can use the Functional options pattern instead.
 
 I can pass a bunch of function types as parameters to set the internal fields of the Document struct.
 
@@ -414,9 +414,9 @@ func NewDocument(opts ...Option) (*Document, error) {
 }
 ```
 
-All I need to do is pass a bunch of functional options as parameters.
+All I need to do is pass a bunch of Functional options as parameters.
 
-Let’s create the functional options first.
+Let’s create the Functional options first.
 
 I’ll add error handling only in the WithId function for comparison.
 
@@ -475,7 +475,7 @@ $ go run main.go
 id shouldn't be negative. got=-1
 ```
 
-Even though I pass multiple functional options,
+Even though I pass multiple Functional options,
 
 the execution stops immediately and returns an error when one occurs, thanks to this logic.
 
@@ -565,8 +565,8 @@ func main() {
 ```
 
 ## Conclusion
-Both the Builder pattern and the Functional Options pattern are great for creating complex types.
+Both the Builder pattern and the Functional options pattern are great for creating complex types.
 
 However, with the Builder pattern, due to Go's lack of a try-catch mechanism, you either have to go through unwanted setter functions or add extra error-handling code to avoid this.
 
-On the other hand, the Functional Options pattern can immediately return an error, which is why I prefer using it for creating complex types in Go.
+On the other hand, the Functional options pattern can immediately return an error, which is why I prefer using it for creating complex types in Go.
